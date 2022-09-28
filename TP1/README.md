@@ -198,6 +198,78 @@ Carte réseau sans fil Wi-Fi :
    Serveur DHCP . . . . . . . . . . . . . : 10.33.19.254
 ```
 
+-  trouver l'adresse IP du serveur DNS que connaît votre ordinateur
+
+```
+PS C:\Users\xouxo\Desktop\netcat-1.11> ipconfig
+Carte réseau sans fil Wi-Fi :
+
+[...]
+   Serveurs DNS. . .  . . . . . . . . . . : 8.8.8.8
+                                       8.8.4.4
+                                       1.1.1.1
+```
+
+- utiliser, en ligne de commande l'outil nslookup (Windows, MacOS) ou dig (GNU/Linux, MacOS) pour faire des requêtes DNS à la main
+```
+PS C:\Users\xouxo\Desktop\netcat-1.11> nslookup google.com
+Serveur :   dns.google
+Address:  8.8.8.8
+
+Réponse ne faisant pas autorité :
+Nom :    google.com
+Addresses:  2a00:1450:4007:808::200e
+          216.58.215.46
+
+PS C:\Users\xouxo\Desktop\netcat-1.11> nslookup ynov.com
+Serveur :   dns.google
+Address:  8.8.8.8
+
+Réponse ne faisant pas autorité :
+Nom :    ynov.com
+Addresses:  2606:4700:20::681a:ae9
+          2606:4700:20::681a:be9
+          2606:4700:20::ac43:4ae2
+          104.26.11.233
+          172.67.74.226
+          104.26.10.233
+
+```
+on peut en conclure que ynov.com à plusieurs adresses donc surement plusieurs serveurs redirigeant vers le site
+on envoie la requete à la passerelle de notre réseau
+
+-  utiliser, en ligne de commande l'outil nslookup (Windows, MacOS) ou dig (GNU/Linux, MacOS) pour faire des requêtes DNS à la main
+```
+PS C:\Users\xouxo\Desktop\netcat-1.11> nslookup 78.74.21.21
+Serveur :   dns.google
+Address:  8.8.8.8
+
+Nom :    host-78-74-21-21.homerun.telia.com
+Address:  78.74.21.21
+
+PS C:\Users\xouxo\Desktop\netcat-1.11> nslookup 92.146.54.88
+Serveur :   dns.google
+Address:  8.8.8.8
+
+*** dns.google ne parvient pas à trouver 92.146.54.88 : Non-existent domain
+```
+Vu que l'adresse n'est pas trouvé je pense que l'adresse 92.146.54.88 n'a pas de nom de domaine
+
+### IV. Wireshark
+
+- utilisez le pour observer les trames qui circulent entre vos deux carte Ethernet. Mettez en évidence
+
+ping :   
+![ping](./ping.png)  
+
+netcat :  
+![netcat](./nc.png)  
+
+ping google :  
+![pinggg](./pinggg.png)
+
+
+
 
 
 
