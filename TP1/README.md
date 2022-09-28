@@ -156,6 +156,32 @@ PS C:\Users\xouxo\Desktop\netcat-1.11> ./nc.exe -l -p 8888 192.168.0.4
 invalid connection to [192.168.0.2] from (UNKNOWN) [192.168.0.1] 50903
 ```
 
+### 6. Firewall
+
+- Autoriser les ping
+
+```
+PS C:\Users\xouxo> netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" protocol=icmpv4:8,any dir=in action=allow
+Ok.
+```
+
+- Autoriser le traffic sur le port qu'utilise nc
+```
+PS C:\Users\xouxo> netsh advfirewall firewall add rule name="ALLOW TCP PORT 1050" dir=in action=allow protocol=TCP localport=1050
+Ok.
+
+PS C:\Users\xouxo> cd .\Desktop\netcat-1.11\
+PS C:\Users\xouxo\Desktop\netcat-1.11> .\nc.exe -l -p 1050
+dd
+d
+d
+d
+d
+d
+```
+
+
+
 ## III. Manipulations d'autres outils/protocoles côté client
 
 ### 1. DHCP
