@@ -49,6 +49,10 @@ Carte Ethernet Ethernet :
 
 [...]
    Passerelle par défaut. . . . . . . . . : 192.168.1.1
+[...]
+Interface : 10.33.19.81 --- 0x9: 
+[...]
+    10.33.19.254          00-c0-e7-e0-04-4e     dynamique
 ```
 
 - Manipuler la table ARP
@@ -82,6 +86,37 @@ source 1e : ASUSTekC_ac:92:58  / Destinataire: Broadcast
 source 2e :ASUSTekC_bf:94:9d / Destnataire: ASUSTekC_ac:92:58  
 la premiere source est l'ordinateur envoyant la requete et la seconde est celle qui répond avec son adresse mac  
 
+## III. DHCP you too my brooo
 
+-  Wireshark it
 
+```
+PS C:\Users\xouxo> netsh interface ipv4 set address name="Wi-Fi" static 10.33.19.69 255.255.255.0 10.33.19.254
+
+PS C:\Users\xouxo> netsh interface ipv4 set address name="Wi-Fi" DHCP
+```
+
+[échange DHCP](./DHCP.pcapng)
+
+trame 1:  
+    - source : 0.0.0.0  
+    - destination : 255.255.255.255  
+    - IP à utiliser : 10.33.19.81  
+trame 2:  
+    - source : 10.33.19.254  
+    - destination : 10.33.119.81  
+    - IP passerelle : 10.33.19.254  
+    - DNS : 8.8.8.8  /  8.8.4.4  /  1.1.1.1  
+trame 3:  
+    - source : 0.0.0.0  
+    - destination : 255.255.255.255  
+trame 4:  
+    - source : 10.33.19.254  
+    - destination : 10.33.19.81  
+
+## IV. Avant-goût TCP et UDP
+
+[échange youtube](./tcp.pcapng)  
+ip youtube : 185.199.108.153
+port connecté : 443  
 
