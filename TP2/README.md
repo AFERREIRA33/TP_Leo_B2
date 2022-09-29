@@ -26,4 +26,4 @@ PS C:\Users\xouxo> netsh interface ipv4 set address name="Ethernet" static 192.1
 
 - Wireshark it
 
-![ping](./ping.pcapng)
+[ping](./ping.pcapng)
