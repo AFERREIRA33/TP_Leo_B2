@@ -27,7 +27,7 @@ l'adresse MAC de marcel est : 08:00:27:02:7f:a5
 
 ### 2. Analyse de trames
 
-- Analyse de trames
+- Analyse de trames  
 [tp2_arp.pcapng](./tp2_arp.pcapng)  
   
 ## II. Routage
@@ -139,7 +139,7 @@ on peut voir qu sur les tables arp de john et de marcel ils n'ont que la gateway
 | 1     | Requête ARP | x          | `router` `08:00:27:68:70:89` | x              | Broadcast `FF:FF:FF:FF:FF`   |
 | 2     | Réponse ARP | x          | `marcel` `08:00:27:02:7f:a5` | x              | `router` `08:00:27:68:70:89` |
 | 3     | Ping        | 10.3.2.254 | `router` `08:00:27:68:70:89` | 10.3.2.12      | `marcel` `08:00:27:02:7f:a5` |
-| 4     | Pong        | 10.3.2.12  | `marcel` `08:00:27:02:7f:a5` | 10.3.2.254     | `router` `08:00:27:68:70:89` |
+| 4     | Pong        | 10.3.2.12  | `marcel` `08:00:27:02:7f:a5` | 10.3.2.254     | `router` `08:00:27:68:70:89` |  
 [routage marcel](./tp2_routage_marcel.pcapng)
 
 ### 3. Accès internet
@@ -192,7 +192,7 @@ nameserver 1.1.1.1
 | ordre | type trame | IP source          | MAC source                 | IP destination     | MAC destination            |
 |-------|------------|--------------------|----------------------------|--------------------|----------------------------|
 | 1     | ping       | `john` `10.3.1.11` | `john` `08:00:27:2e:14:11` | `8.8.8.8`          | `08:00:27:ed:14:6b`        |
-| 2     | pong       | `8.8.8.8`          | `08:00:27:ed:14:6b`        | `john` `10.3.1.11` | `john` `08:00:27:2e:14:11` |
+| 2     | pong       | `8.8.8.8`          | `08:00:27:ed:14:6b`        | `john` `10.3.1.11` | `john` `08:00:27:2e:14:11` |  
 [routage internet](./tp2_routage_internet.pcapng)
 
 ## III. DHCP
@@ -318,5 +318,5 @@ rtt min/avg/max/mdev = 14.874/15.052/15.287/0.173 ms
 
 2. Analyse de trames
 
-- Analyse de trames
+- Analyse de trames  
 [dhcp](./tp2_dhcp.pcapng)
