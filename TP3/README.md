@@ -51,6 +51,7 @@ success
 ```
 
 - Ajouter les routes statiques nécessaires pour que john et marcel puissent se ping
+```
 [xouxou@john ~]$ cat /etc/sysconfig/network-scripts/route-enp0s8
 10.3.2.12 via 10.3.1.254 dev eth0
 [xouxou@john ~]$ ip r s
@@ -116,6 +117,7 @@ rtt min/avg/max/mdev = 0.479/0.806/1.193/0.294 ms
 10.3.2.12 dev enp0s3 lladdr 08:00:27:02:7f:a5 STALE
 10.3.2.1 dev enp0s3 lladdr 0a:00:27:00:00:12 REACHABLE
 ```
+
 on peut voir qu sur les tables arp de john et de marcel ils n'ont que la gateway donc le ping est passé par la passerelle pour rejoindre l'autre apareil.  
 
 | ordre | type trame  | IP source | MAC source              | IP destination | MAC destination            |
