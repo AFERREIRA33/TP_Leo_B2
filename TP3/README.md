@@ -120,11 +120,9 @@ rtt min/avg/max/mdev = 0.479/0.806/1.193/0.294 ms
 
 on peut voir qu sur les tables arp de john et de marcel ils n'ont que la gateway donc le ping est passé par la passerelle pour rejoindre l'autre apareil.  
 
-| ordre | type trame  | IP source | MAC source              | IP destination | MAC destination            |
-|-------|-------------|-----------|-------------------------|----------------|----------------------------|
-| 1     | Requête ARP | x         | `john` `AA:BB:CC:DD:EE` | x              | Broadcast `FF:FF:FF:FF:FF` |
-| 2     | Réponse ARP | x         | ?                       | x              | `john` `AA:BB:CC:DD:EE`    |
-| ...   | ...         | ...       | ...                     |                |                            |
-| ?     | Ping        | ?         | ?                       | ?              | ?                          |
-| ?     | Pong        | ?         | ?                       | ?              | ?                          |
-
+| ordre | type trame  | IP source  | MAC source                   | IP destination | MAC destination              |
+|-------|-------------|------------|------------------------------|----------------|------------------------------|
+| 1     | Requête ARP | x          | `router` `08:00:27:68:70:89` | x              | Broadcast `FF:FF:FF:FF:FF`   |
+| 2     | Réponse ARP | x          | `marcel` `08:00:27:02:7f:a5` | x              | `router` `08:00:27:68:70:89` |
+| 3     | Ping        | 10.3.2.254 | `router` `08:00:27:68:70:89` | 10.3.2.12      | `marcel` `08:00:27:02:7f:a5` |
+| 4     | Pong        | 10.3.2.12  | `marcel` `08:00:27:02:7f:a5` | 10.3.2.254     | `router` `08:00:27:68:70:89` |
