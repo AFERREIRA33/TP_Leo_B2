@@ -126,3 +126,54 @@ on peut voir qu sur les tables arp de john et de marcel ils n'ont que la gateway
 | 2     | Réponse ARP | x          | `marcel` `08:00:27:02:7f:a5` | x              | `router` `08:00:27:68:70:89` |
 | 3     | Ping        | 10.3.2.254 | `router` `08:00:27:68:70:89` | 10.3.2.12      | `marcel` `08:00:27:02:7f:a5` |
 | 4     | Pong        | 10.3.2.12  | `marcel` `08:00:27:02:7f:a5` | 10.3.2.254     | `router` `08:00:27:68:70:89` |
+
+- Donnez un accès internet à vos machines
+
+```
+[xouxou@john ~]$ cat /etc/sysconfig/network
+GATEWAY=10.3.1.254
+[xouxou@john ~]$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=112 time=15.6 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=112 time=15.5 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=112 time=14.9 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=112 time=15.0 ms
+^C
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 14.943/15.260/15.560/0.268 ms
+```
+```
+[xouxou@marcel ~]$ cat /etc/sysconfig/network
+GATEWAY=10.3.2.254
+[xouxou@marcel ~]$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=112 time=16.0 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=112 time=15.8 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=112 time=15.3 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=112 time=15.1 ms
+^C
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 15.113/15.547/15.983/0.363 ms
+```
+```
+[xouxou@marcel ~]$ cat /etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 1.1.1.1
+```
+```
+[xouxou@john ~]$ cat /etc/resolv.conf
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 1.1.1.1
+```
+
+- Analyse de trames
+
+| ordre | type trame | IP source          | MAC source                 | IP destination     | MAC destination            |
+|-------|------------|--------------------|----------------------------|--------------------|----------------------------|
+| 1     | ping       | `john` `10.3.1.11` | `john` `08:00:27:2e:14:11` | `8.8.8.8`          | `08:00:27:ed:14:6b`        |
+| 2     | pong       | `8.8.8.8`          | `08:00:27:ed:14:6b`        | `john` `10.3.1.11` | `john` `08:00:27:2e:14:11` |
+
