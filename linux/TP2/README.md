@@ -111,4 +111,4 @@ If you can read this page, it means that the software it working correctly.
 Just visiting?
 ```
 
-httpd.conf[./httpd.conf]
+![httpd.conf](./httpd.conf)
