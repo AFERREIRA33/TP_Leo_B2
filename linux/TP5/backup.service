@@ -1,0 +1,9 @@
+[Unit]
+Description=Do a backup of your Music file
+
+[Service]
+ExecStart=/usr/bin/bash /etc/backups/run.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
