@@ -29,6 +29,8 @@ docker compose up -d
 ```
 ## Installation Netdata :
 
+Il vous faudra déplacer les fichier [health_alarm_notify.conf](./conf/health_alarm_notify.conf) et [cpu_usage.conf](./conf/cpu_usage.conf)
+
 ```
 sudo dnf install wget
 
@@ -69,11 +71,11 @@ sudo mount /dev/VGMusicBackup/LVMusicBackup /mnt/MusicBackup/
 
 ## Backup : 
 
-- initialiser 
+- initialiser le dossier de backup :
 ```
 sudo borg init --encryption=repokey /mnt/MusicBackup
 ```
-- Déplacer les fichiers dans conf :
+- Déplacer les fichiers [backup.timer](./conf/backup.timer), [backup.service](./conf/backup.service) et [run.sh](./conf/run.sh) :
 ```
 
 cd
