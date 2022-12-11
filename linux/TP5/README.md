@@ -27,6 +27,26 @@ sudo firewall-cmd --add-port=80/tcp --permanent
 
 docker compose up -d
 ```
+## Installation Netdata :
+
+```
+sudo dnf install wget
+
+wget -O /tmp/netdata-kickstart.sh https://my-netdata.io/kickstart.sh && sh /tmp/netdata-kickstart.sh
+
+sudo mv -t  /etc/netdata /home/<user>/TP_Leo_B2/linux/TP5/conf/health_alarm_notify.conf
+
+sudo mv -t /etc/netdata/health.d /home/<user>/TP_Leo_B2/linux/TP5/conf/cpu_usage.conf
+
+
+sudo systemctl enable netdata
+
+
+sudo systemctl status netdata
+
+sudo firewall-cmd --add-port=19999/tcp --permanent
+
+```
 
 ## Partitionnage :
 
