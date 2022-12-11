@@ -13,7 +13,7 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/dock
 sudo dnf install docker-compose-plugin
 ```
 
-Installation du projet :
+## Installation du projet :
 ```
 git clone https://github.com/AFERREIRA33/TP_Leo_B2.git
 
@@ -30,7 +30,7 @@ docker compose up -d
 
 ## Partitionnage :
 
-il vous faudra 2 disqu dur en plus
+il vous faudra 2 disque dur en plus
 
 ```
 sudo vgcreate VGMusicFile /dev/sdb
@@ -53,7 +53,7 @@ sudo mount /dev/VGMusicBackup/LVMusicBackup /mnt/MusicBackup/
 ```
 sudo borg init --encryption=repokey /mnt/MusicBackup
 ```
-- Déplacer les fichier dans conf :
+- Déplacer les fichiers dans conf :
 ```
 
 cd
